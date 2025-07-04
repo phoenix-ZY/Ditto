@@ -46,6 +46,7 @@ private:
     int iv_count_;
     int bytes_to_send_;
     int bytes_have_send_;
+    // int log_fd_;
 };
 
 #endif

@@ -26,7 +26,8 @@ void TCPConn::Init(int epoll_fd, int socket_fd)
 {
     epoll_fd_ = epoll_fd;
     socket_fd_ = socket_fd;
-
+    // log_fd_ = open("./dummy.log", O_WRONLY | O_APPEND);
+    // fcntl(log_fd_, FD_CLOEXEC);
 #ifdef NETWORKEPOLL
     addfd(epoll_fd_, socket_fd_, false);
     setnonblocking(socket_fd_);
@@ -176,6 +177,14 @@ void TCPConn::Process(uint64_t* mem_data, uint64_t* curr_mem_addrs, uint64_t* cu
     {
         runAssembly(mem_data, request_id, curr_mem_addrs, curr_pointer_chasing_mem_addrs);
         request_id++;
+        // struct stat sb;
+        // stat("./dummy.html", &sb);
+        // int stat_fd = open("./dummy.html", O_RDONLY | O_NONBLOCK);
+        // fstat(stat_fd, &sb);
+        // char tmp_read_buf[2048];
+        // pread(stat_fd, tmp_read_buf, 612, 0);
+        // write(log_fd_, tmp_read_buf, 82);
+        // close(stat_fd);
         iv_[0].iov_len = 24;
         iv_[1].iov_len = 4;
         iv_[2].iov_len = 4096;
