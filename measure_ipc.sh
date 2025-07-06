@@ -38,9 +38,9 @@ done
 # fi
 
 # 提取应用配置
-APP_CMD="/home/huangtianhao/myDitto/applications/redis-6.2.6/src/redis-server /home/huangtianhao/myDitto/applications/redis-6.2.6/redis.conf"
-LOAD_CMD="python2 /home/huangtianhao/myDitto/client/ycsb-redis-binding-0.18.0-SNAPSHOT/bin/ycsb load redis -P /home/huangtianhao/myDitto/applications/workloads/redis_ycsb.txt -threads 1 -target 5000"
-CLIENT_CMD="python2 /home/huangtianhao/myDitto/client/ycsb-redis-binding-0.18.0-SNAPSHOT/bin/ycsb run redis -P /home/huangtianhao/myDitto/applications/workloads/redis_ycsb.txt -threads <conns> -p operationcount=<reqs> -target <reqs_per_sec>"
+APP_CMD="/home/hth02274921/Dittoclone/myDitto/applications/redis-6.2.6/src/redis-server /home/hth02274921/Dittoclone/myDitto/applications/redis-6.2.6/redis.conf"
+LOAD_CMD="python2 /home/hth02274921/Dittoclone/myDitto/client/ycsb-redis-binding-0.18.0-SNAPSHOT/bin/ycsb load redis -P /home/hth02274921/Dittoclone/myDitto/applications/workloads/redis_ycsb.txt -threads 1 -target 5000"
+CLIENT_CMD="python2 /home/hth02274921/Dittoclone/myDitto/client/ycsb-redis-binding-0.18.0-SNAPSHOT/bin/ycsb run redis -P /home/hth02274921/Dittoclone/myDitto/applications/workloads/redis_ycsb.txt -threads <conns> -p operationcount=<reqs> -target <reqs_per_sec>"
 
 # 测试参数配置
 PERF_SAMPLES=5
