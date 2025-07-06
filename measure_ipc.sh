@@ -23,24 +23,24 @@ while [[ $# -gt 0 ]]; do
     esac
 done
 
-if [ -z "$APP_NAME" ]; then
-    echo "Usage: $0 --app <app_name>"
-    echo "Available apps:"
-    jq -r 'keys[]' "$CONFIG_FILE"
-    exit 1
-fi
+# if [ -z "$APP_NAME" ]; then
+#     echo "Usage: $0 --app <app_name>"
+#     echo "Available apps:"
+#     jq -r 'keys[]' "$CONFIG_FILE"
+#     exit 1
+# fi
 
 
 # 从JSON文件读取配置
-if ! jq -e ".${APP_NAME}" "$CONFIG_FILE" >/dev/null 2>&1; then
-    echo "Error: Application '$APP_NAME' not found in config file"
-    exit 1
-fi
+# if ! jq -e ".${APP_NAME}" "$CONFIG_FILE" >/dev/null 2>&1; then
+#     echo "Error: Application '$APP_NAME' not found in config file"
+#     exit 1
+# fi
 
 # 提取应用配置
-APP_CMD=$(jq -r ".${APP_NAME}.app_cmd" "$CONFIG_FILE")
-LOAD_CMD=$(jq -r ".${APP_NAME}.load_cmd" "$CONFIG_FILE")
-CLIENT_CMD=$(jq -r ".${APP_NAME}.client_cmd" "$CONFIG_FILE")
+APP_CMD="/home/huangtianhao/myDitto/applications/redis-6.2.6/src/redis-server /home/huangtianhao/myDitto/applications/redis-6.2.6/redis.conf"
+LOAD_CMD="python2 /home/huangtianhao/myDitto/client/ycsb-redis-binding-0.18.0-SNAPSHOT/bin/ycsb load redis -P /home/huangtianhao/myDitto/applications/workloads/redis_ycsb.txt -threads 1 -target 5000"
+CLIENT_CMD="python2 /home/huangtianhao/myDitto/client/ycsb-redis-binding-0.18.0-SNAPSHOT/bin/ycsb run redis -P /home/huangtianhao/myDitto/applications/workloads/redis_ycsb.txt -threads <conns> -p operationcount=<reqs> -target <reqs_per_sec>"
 
 # 测试参数配置
 PERF_SAMPLES=5
