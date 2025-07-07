@@ -45,9 +45,13 @@ CLIENT_CMD=$(jq -r ".${APP_NAME}.client_cmd" "$CONFIG_FILE")
 # 测试参数配置
 PERF_SAMPLES=5
 PERF_INTERVAL=10
-CONNECTIONS=32
+if echo "$APP_CMD" | grep -qi "redis"; then
+    CONNECTIONS=8
+else
+    CONNECTIONS=32
+fi
 DURATION=170
-REQS_PER_SEC=1000
+REQS_PER_SEC=10000
 
 # 创建输出目录
 mkdir -p "$OUTPUT_DIR"
