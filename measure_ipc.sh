@@ -31,7 +31,7 @@ if [ -z "$APP_NAME" ]; then
 fi
 
 
-从JSON文件读取配置
+#从JSON文件读取配置
 if ! jq -e ".${APP_NAME}" "$CONFIG_FILE" >/dev/null 2>&1; then
     echo "Error: Application '$APP_NAME' not found in config file"
     exit 1
@@ -46,7 +46,7 @@ CLIENT_CMD=$(jq -r ".${APP_NAME}.client_cmd" "$CONFIG_FILE")
 PERF_SAMPLES=5
 PERF_INTERVAL=10
 CONNECTIONS=32
-DURATION=120
+DURATION=170
 REQS_PER_SEC=1000
 
 # 创建输出目录
