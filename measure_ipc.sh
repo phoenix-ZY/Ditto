@@ -198,7 +198,7 @@ run_perf_test() {
 
         SAMPLE_FILE="$OUTPUT_DIR/perf_topdown_${APP_NAME}_${i}.txt"
         echo "Taking sample $i/$PERF_SAMPLES..."
-        sudo perf stat -p $MONITOR_PID -e topdown-fetch-bubbles,topdown-recovery-bubbles,topdown-slots-issued,topdown-slots-retired -o "$SAMPLE_FILE" -- sleep $PERF_INTERVAL
+        sudo perf stat -p $MONITOR_PID -e topdown-total-slots,topdown-fetch-bubbles,topdown-recovery-bubbles,topdown-slots-issued,topdown-slots-retired -o "$SAMPLE_FILE" -- sleep $PERF_INTERVAL
         # # 从样本中提取指标
         # declare -A metrics
         # extract_metrics "$SAMPLE_FILE"
