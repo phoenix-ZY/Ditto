@@ -1,32 +1,32 @@
 {
   "memcached": {
-    "app_cmd": "/home/huangtianhao/myDitto/applications/memcached-1.6.9/build/memcached -p 11212 -t 4",
-    "load_cmd": "/home/huangtianhao/myDitto/client/mutated/client/load_memcache 0.0.0.0:11212",
-    "client_cmd": "/home/huangtianhao/myDitto/client/mutated/client/mutated_memcache 0.0.0.0:11212 -n <conns> -w 0 -c 0 -s <duration> <reqs_per_sec>"
+    "app_cmd": "/home/hth02274921/Dittoclone/myDitto/applications/memcached-1.6.9/build/memcached -p 11212 -t 4",
+    "load_cmd": "/home/hth02274921/Dittoclone/myDitto/client/mutated/client/load_memcache 0.0.0.0:11212",
+    "client_cmd": "/home/hth02274921/Dittoclone/myDitto/client/mutated/client/mutated_memcache 0.0.0.0:11212 -n <conns> -w 0 -c 0 -s <duration> <reqs_per_sec>"
   },
   "my_syn_memcached": {
-    "app_cmd": "/home/huangtianhao/myDitto/synthetic_memcached_skeleton/syn_memcached -p 9016 -n 4",
-    "client_cmd": "/home/huangtianhao/myDitto/client/mutated/client/mutated_synthetic 0.0.0.0:9016 -p 54 -n <conns> -w 0 -c 0 -s <duration> 100 <reqs_per_sec>"
+    "app_cmd": "/home/hth02274921/Dittoclone/myDitto/synthetic_memcached_skeleton/syn_memcached -p 9016 -n 4",
+    "client_cmd": "/home/hth02274921/Dittoclone/myDitto/client/mutated/client/mutated_synthetic 0.0.0.0:9016 -p 54 -n <conns> -w 0 -c 0 -s <duration> 100 <reqs_per_sec>"
   },
   "syn_memcached": {
-    "app_cmd": "/home/huangtianhao/myDitto/applications/synthetic_memcached/syn_memcached -p 9016 -n 4",
-    "client_cmd": "/home/huangtianhao/myDitto/client/mutated/client/mutated_synthetic 0.0.0.0:9016 -p 54 -n <conns> -w 0 -c 0 -s <duration> 100 <reqs_per_sec>"
+    "app_cmd": "/home/hth02274921/Dittoclone/myDitto/applications/synthetic_memcached/syn_memcached -p 9016 -n 4",
+    "client_cmd": "/home/hth02274921/Dittoclone/myDitto/client/mutated/client/mutated_synthetic 0.0.0.0:9016 -p 54 -n <conns> -w 0 -c 0 -s <duration> 100 <reqs_per_sec>"
   },
   "nginx": {
-    "app_cmd": "/usr/local/nginx/sbin/nginx -c /home/huangtianhao/myDitto/applications/nginx-1.20.1/build/conf/nginx.conf",
-    "client_cmd": "/home/huangtianhao/myDitto/tcpkali-debian/src/tcpkali -vvv -em \"GET / HTTP/1.1\\r\\nHost: 0.0.0.0: 18081\\r\\n\\r\\n\" -c <conns> -r <reqs_per_sec_per_conn> -T <duration> --latency-percentiles 50,90,95,99 --latency-marker \"HTTP/1.1\" 0.0.0.0:18081"
+    "app_cmd": "/usr/local/nginx/sbin/nginx -c /home/hth02274921/Dittoclone/myDitto/applications/nginx-1.20.1/build/conf/nginx.conf",
+    "client_cmd": "/home/hth02274921/Dittoclone/myDitto/tcpkali-debian/src/tcpkali -vvv -em \"GET / HTTP/1.1\\r\\nHost: 0.0.0.0: 18081\\r\\n\\r\\n\" -c <conns> -r <reqs_per_sec_per_conn> -T <duration> --latency-percentiles 50,90,95,99 --latency-marker \"HTTP/1.1\" 0.0.0.0:18081"
   },
   "syn_nginx": {
-    "app_cmd": "/home/huangtianhao/myDitto/applications/synthetic_nginx/syn_nginx -p 9017 -n 1",
-    "client_cmd": "/home/huangtianhao/myDitto/tcpkali-debian/src/tcpkali -vvv -em \"GET\\n\" -c <conns> -r <reqs_per_sec_per_conn> -T <duration> --latency-percentiles 50,90,95,99 --latency-marker \"reply\" 0.0.0.0:9017"
+    "app_cmd": "/home/hth02274921/Dittoclone/myDitto/applications/synthetic_nginx/syn_nginx -p 9017 -n 1",
+    "client_cmd": "/home/hth02274921/Dittoclone/myDitto/tcpkali-debian/src/tcpkali -vvv -em \"GET\\n\" -c <conns> -r <reqs_per_sec_per_conn> -T <duration> --latency-percentiles 50,90,95,99 --latency-marker \"reply\" 0.0.0.0:9017"
   },
   "redis": {
-    "app_cmd": "/home/huangtianhao/myDitto/applications/redis-6.2.6/src/redis-server /home/huangtianhao/myDitto/applications/redis-6.2.6/redis.conf",
-    "load_cmd": "python2 /home/huangtianhao/myDitto/client/ycsb-redis-binding-0.18.0-SNAPSHOT/bin/ycsb load redis -P /home/huangtianhao/myDitto/applications/workloads/redis_ycsb.txt -threads 1 -target 5000",
-    "client_cmd": "python2 /home/huangtianhao/myDitto/client/ycsb-redis-binding-0.18.0-SNAPSHOT/bin/ycsb run redis -P /home/huangtianhao/myDitto/applications/workloads/redis_ycsb.txt -threads <conns> -p operationcount=<reqs> -target <reqs_per_sec>"
+    "app_cmd": "/home/hth02274921/Dittoclone/myDitto/applications/redis-6.2.6/src/redis-server /home/hth02274921/Dittoclone/myDitto/applications/redis-6.2.6/redis.conf",
+    "load_cmd": "python2 /home/hth02274921/Dittoclone/myDitto/client/ycsb-redis-binding-0.18.0-SNAPSHOT/bin/ycsb load redis -P /home/hth02274921/Dittoclone/myDitto/applications/workloads/redis_ycsb.txt -threads 1 -target 5000",
+    "client_cmd": "python2 /home/hth02274921/Dittoclone/myDitto/client/ycsb-redis-binding-0.18.0-SNAPSHOT/bin/ycsb run redis -P /home/hth02274921/Dittoclone/myDitto/applications/workloads/redis_ycsb.txt -threads <conns> -p operationcount=<reqs> -target <reqs_per_sec>"
   },
   "syn_redis": {
-    "app_cmd": "/home/huangtianhao/myDitto/applications/synthetic_redis/syn_redis -p 9018",
-    "client_cmd": "python2 /home/huangtianhao/myDitto/client/ycsb-syn-redis-binding-0.18.0-SNAPSHOT/bin/ycsb run redis -P /home/huangtianhao/myDitto/applications/workloads/syn-redis_ycsb.txt -threads <conns> -p operationcount=<reqs> -target <reqs_per_sec>"
+    "app_cmd": "/home/hth02274921/Dittoclone/myDitto/applications/synthetic_redis/syn_redis -p 9018",
+    "client_cmd": "python2 /home/hth02274921/Dittoclone/myDitto/client/ycsb-syn-redis-binding-0.18.0-SNAPSHOT/bin/ycsb run redis -P /home/hth02274921/Dittoclone/myDitto/applications/workloads/syn-redis_ycsb.txt -threads <conns> -p operationcount=<reqs> -target <reqs_per_sec>"
   }
 }
