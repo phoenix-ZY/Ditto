@@ -47,7 +47,7 @@ PERF_SAMPLES=5
 PERF_INTERVAL=10
 CONNECTIONS=32
 DURATION=120
-REQS_PER_SEC=10000
+REQS_PER_SEC=1000
 
 # 创建输出目录
 mkdir -p "$OUTPUT_DIR"
@@ -191,6 +191,10 @@ run_perf_test() {
         SAMPLE_FILE="$OUTPUT_DIR/perf_cache_${APP_NAME}_${i}.txt"
         echo "Taking sample $i/$PERF_SAMPLES..."
         sudo perf stat -p $MONITOR_PID -e cache-misses,cache-references,L1-dcache-load-misses,L1-dcache-loads,LLC-loads,LLC-load-misses -o "$SAMPLE_FILE" -- sleep $PERF_INTERVAL
+
+        SAMPLE_FILE="$OUTPUT_DIR/perf_topdown_${APP_NAME}_${i}.txt"
+        echo "Taking sample $i/$PERF_SAMPLES..."
+        sudo perf stat -p $MONITOR_PID -e topdown-fetch-bubbles,topdown-recovery-bubbles,topdown-slots-issued,topdown-slots-retired -o "$SAMPLE_FILE" -- sleep $PERF_INTERVAL
         # # 从样本中提取指标
         # declare -A metrics
         # extract_metrics "$SAMPLE_FILE"
