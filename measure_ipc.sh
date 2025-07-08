@@ -118,6 +118,7 @@ start_server() {
         cmd_name="${APP_CMD%% *}" 
     else
         cmd_name="$APP_CMD"
+    fi
     echo "Command path: $cmd_name"
 
     SERVER_PID=$(pgrep -f "$cmd_name")
