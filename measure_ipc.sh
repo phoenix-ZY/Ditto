@@ -113,7 +113,11 @@ start_server() {
     # 使用taskset绑定CPU
     eval "taskset -c $CPU_CORES $APP_CMD" &
     sleep 1
-    cmd_name="${APP_CMD%% *}" 
+
+    if echo "$APP_CMD" | grep -qi "redis"; then
+        cmd_name="${APP_CMD%% *}" 
+    else
+        cmd_name="$APP_CMD"
     echo "Command path: $cmd_name"
 
     SERVER_PID=$(pgrep -f "$cmd_name")

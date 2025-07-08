@@ -13,7 +13,7 @@
     "client_cmd": "/home/hth02274921/Dittoclone/myDitto/client/mutated/client/mutated_synthetic 0.0.0.0:9016 -p 54 -n <conns> -w 0 -c 0 -s <duration> 100 <reqs_per_sec>"
   },
   "nginx": {
-    "app_cmd": "/usr/local/nginx/sbin/nginx -c /home/hth02274921/Dittoclone/myDitto/applications/nginx-1.20.1/build/conf/nginx.conf",
+    "app_cmd": "nginx -c /home/hth02274921/Dittoclone/myDitto/applications/nginx-1.20.1/build/conf/nginx.conf",
     "client_cmd": "/home/hth02274921/Dittoclone/myDitto/tcpkali-debian/src/tcpkali -vvv -em \"GET / HTTP/1.1\\r\\nHost: 0.0.0.0: 18081\\r\\n\\r\\n\" -c <conns> -r <reqs_per_sec_per_conn> -T <duration> --latency-percentiles 50,90,95,99 --latency-marker \"HTTP/1.1\" 0.0.0.0:18081"
   },
   "syn_nginx": {
